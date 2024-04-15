@@ -1,0 +1,123 @@
+.background-image {
+    background-image: url('bg.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.landing-page {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 1.125rem;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.25rem;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+    
+}
+
+.cta-button:hover {
+    background-color: #45a049;
+}
+
+
+.modal {
+ display: none;
+ position: absolute;
+ z-index: 1;
+ left: 0;
+ top: 0;
+ width: 100%;
+ height: 100%;
+ overflow: auto;
+ background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+ background-color: #0B1320;
+ margin: 15% auto;
+ padding: 10px;
+ border: 1px solid #888;
+ width: 70%;
+ border-radius: 15px;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ position: relative;
+ 
+}
+
+.close {
+ color: #aaaaaa;
+ float: right;
+ font-size: 28px;
+ font-weight: bold;
+ top: 15px;
+ right: 15px;
+ position: absolute;
+}
+
+.close:hover,
+.close:focus {
+ color: #000;
+ text-decoration: none;
+ cursor: pointer;
+}
+
+.icon-container {
+ display: absolute;
+ justify-content: space-around;
+}
+
+
+.student, .courses, .college {
+    width: 300px;
+    height: 300px;
+    margin-left: 50px;
+}
+
+/* student nav bar*/
+.navbar {
+    height: 10vh; /* adjust this value based on your preference */
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.content {
+    overflow: auto;
+    height: 100vh; /* This makes the div take up the full viewport height */
+}

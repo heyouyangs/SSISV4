@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Student Information System</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    </head>
+    <body>
+        <!--for nav bar-->
+        <nav class="flex items-center bg-gray-800 p-3 flex-wrap">
+            <a href="/" class="px-4 mr-4 inline-flex items-center"><span class="text-xl text-white font-bold uppercase tracking-wide">Students Information System</span></a>
+            <button class="text-white inline-flex p-3 hover:bg-gray-900 rounded lg:hidden ml-auto hover:text-white outline-none nav-toggler" data-target="#navigation"> <i class="material-icons">menu</i> </button>
+            <div class="hidden top-navbar w-full lg:inline-flex lg:flex-grow lg:w-auto" id="navigation">
+                <div class="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto">
+                
+                    {% block navigation %} {% endblock %}
+                </div>
+            </div>
+        </nav>
+        <!--end of nav bar-->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="container mx-auto">
+                {% for category, message in messages %}
+                <div class="{{ 'bg-red-500 text-white' if category == 'error' else 'bg-green-500 text-white' }} w-full px-6 py-3 mb-4 rounded flex justify-between items-center" role="alert">
+                    <span>{{ message }}</span>
+                    <button type="button" class="text-white hover:text-gray-300 focus:outline-none focus:shadow-outline" aria-label="Close" onclick="this.parentElement.style.display='none';">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+   
+
+
+        {% block content %} {% endblock %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+        <script>
+            $(document).ready(function() {
+            $(".nav-toggler").each(function(_, navToggler) {
+                var target = $(navToggler).data("target");
+                $(navToggler).on("click", function() {
+                $(target).animate({
+                    height: "toggle"
+                });
+                });
+            });
+        });
+        </script>
+        <script src="{{url_for('static', filename='script.js')}}"></script>
+
+    </body>
+</html>

@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Student Information System</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+       
+      
+    </head>
+<body>
+ 
+
+  
+      </style>
+      <nav class="flex items-center bg-gray-800 p-3 flex-wrap">
+            <a href="/" class="px-4 mr-4 inline-flex items-center">
+              
+              <span class="text-xl text-white font-bold uppercase tracking-wide"
+               >Students Information System</span
+              >
+            </a>
+            <button
+              class="text-white inline-flex p-3 hover:bg-gray-900 rounded lg:hidden ml-auto hover:text-white outline-none nav-toggler"
+              data-target="#navigation"
+            >
+              <i class="material-icons">menu</i>
+            </button>
+            <div
+              class="hidden top-navbar w-full lg:inline-flex lg:flex-grow lg:w-auto"
+              id="navigation"
+            >
+              <div
+                class="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto"
+              >
+
+                <a
+                  href="/students"
+                  class="lg:inline-flex lg:w-auto w-full px-4 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white"
+                >
+                  <span>Students</span>
+                </a>
+                <a
+                  href="/courses"
+                  class="lg:inline-flex lg:w-auto w-full px-4 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white"
+                >
+                  <span>Courses</span>
+                </a>
+
+              </div>
+            </div>
+          </nav>
+  
+
+    <body class="font-mono bg-gray-400">
+		<!-- Container -->
+		<div class="container mx-auto">
+			<div class="flex justify-center px-6 my-12">
+				<!-- Row -->
+				<div class="w-full xl:w-3/4 lg:w-11/12 flex">
+					<!-- Col -->
+					<div
+						class="w-full h-auto bg-gray-400 hidden lg:block lg:w-5/12 bg-cover rounded-l-lg"
+						style="background-image: url('/static/course.png')"
+					></div>
+					<!-- Col -->
+					<div class="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none">
+						<h3 class="pt-4 text-2xl text-center">Add Course!</h3>
+
+						<form class="px-8 pt-6 pb-8 mb-4 bg-white rounded flex flex-col justify-center items-center" method="POST">
+							<div class="mb-4 md:flex md:justify-between">
+                  <div class="mb-4 md:mr-2 md:mb-0">
+                    <label class="block mb-2 text-sm font-bold text-gray-700" for="course_id">
+                        Course ID 
+                    </label>
+                    <input
+                        class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                        id="course_id"
+                        type="text"
+                        placeholder="161"
+                        name = "course_id"
+                    />
+                  </div>
+              </div>
+              <div class="mb-4 md:flex md:justify-between">
+                <div class="mb-4 md:mr-2 md:mb-0">
+                  <label class="block mb-2 text-sm font-bold text-gray-700" for="course_name">
+                      Course Name
+                  </label>
+                  <input
+                      class="px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                      id="course_name"
+                      type="text"
+                      placeholder="Course Name"
+                      name = "course_name"
+                  />
+                </div>
+              </div> 
+							<div class="my-4 text-center">  
+								<button
+									class="px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
+									type="submit"
+								>
+                  Add Course
+								</button>
+                <a href="/courses" class="h-10 px-4 py-2 font-bold text-white bg-red-500 rounded-full hover:bg-red-700 focus:outline-none focus:shadow-outline">Cancel</a>
+							</div>
+						</form>
+                    
+              
+         
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+      
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+      <script>
+        $(document).ready(function() {
+        $(".nav-toggler").each(function(_, navToggler) {
+          var target = $(navToggler).data("target");
+          $(navToggler).on("click", function() {
+            $(target).animate({
+              height: "toggle"
+            });
+          });
+        });
+      });
+
+
+
+      
+      </script>
+      </body>
+
+
+
+</html>

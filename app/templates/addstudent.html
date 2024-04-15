@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Information System</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+
+<body class="font-mono bg-gray-400">
+
+  <nav class="flex items-center bg-gray-800 p-3 flex-wrap">
+    <a href="/" class="px-4 mr-4 inline-flex items-center">
+      <span class="text-xl text-white font-bold uppercase tracking-wide">Students Information System</span>
+    </a>
+    <button class="text-white inline-flex p-3 hover:bg-gray-900 rounded lg:hidden ml-auto hover:text-white outline-none nav-toggler" data-target="#navigation">
+      <i class="material-icons">menu</i>
+    </button>
+    <div class="hidden top-navbar w-full lg:inline-flex lg:flex-grow lg:w-auto" id="navigation">
+      <div class="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto">
+        <a href="/students" class="lg:inline-flex lg:w-auto w-full px-4 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white">
+          <span>Students</span>
+        </a>
+        <a href="/courses" class="lg:inline-flex lg:w-auto w-full px-4 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white">
+          <span>Courses</span>
+        </a>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- Container -->
+  <div class="container mx-auto">
+    <div class="flex justify-center px-6 my-12">
+      <!-- Row -->
+      <div class="w-full xl:w-3/4 lg:w-11/12 flex">
+        <!-- Col -->
+        <div class="w-full h-auto bg-gray-400 hidden lg:block lg:w-5/12 bg-cover rounded-l-lg" style="background-image: url('/static/students.png')"></div>
+        <!-- Col -->
+        <div class="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none">
+          <h3 class="pt-4 text-2xl text-center">Add Student!</h3>
+
+          <form id="add-student-form" class="px-8 pt-6 pb-8 mb-4 bg-white rounded flex flex-col justify-center items-center" method="POST">
+
+        <!-- Other Form Fields -->
+        <div class="mb-4 md:flex md:justify-between">
+          <div class="mb-4 md:mr-2 md:mb-0">
+            <label class="block mb-2 text-sm font-bold text-gray-700" for="student_id">Student ID</label>
+            <input class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline" id="student_id" type="text" placeholder="YYYY-NNNN" name="student_id" />
+          </div>
+        </div>
+        <div class="mb-4 md:flex md:justify-between">
+          <div class="mb-4 md:mr-2 md:mb-0">
+            <label class="block mb-2 text-sm font-bold text-gray-700" for="student_name">Name</label>
+            <input class="px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline" id="student_name" type="text" placeholder="Name" name="student_name" />
+          </div>
+        </div>
+
+        <div class="md:mb-1">
+          <label class="block mb-2 text-sm font-bold text-gray-700" for="course_id">Course ID</label>
+          <select class="px-10 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline" id="course_id" name="course_id">
+            <option value="">Select a course</option>
+            {% for course in courses %}
+            <option value="{{ course[0] }}">{{ course[0] }}</option>
+            {% endfor %}
+          </select>
+        </div>
+      
+
+        <div class="my-4 text-center">
+          <button id="add-student-btn" class="h-10 px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline" type="submit">Add Student</button>
+          <a href="/students" class="h-10 px-4 py-2 font-bold text-white bg-red-500 rounded-full hover:bg-red-700 focus:outline-none focus:shadow-outline">Cancel</a>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+        $('#add-student-form').submit(function(e) {
+            var course_id = $('#course_id').val();
+            if (course_id === '') {
+                alert('Please select a course');
+                e.preventDefault(); // Prevent form submission
+            }
+        });
+    });
+</script>
+
+
+</body>
+
+</html>
