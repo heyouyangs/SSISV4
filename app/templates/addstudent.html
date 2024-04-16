@@ -89,6 +89,31 @@
                 e.preventDefault(); // Prevent form submission
             }
         });
+
+        fetch('/addstudents', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        student_id: 'your_student_id',
+        student_name: 'your_student_name',
+        course_id: 'your_course_id'
+    })
+})
+.then(response => {
+    if (response.ok) {
+        alert('Student added successfully');
+        window.location.href = '/students';  // Redirect to the students page
+    } else {
+        alert('Failed to add student');
+    }
+})
+.catch(error => {
+    console.error('Error adding student:', error);
+    alert('An error occurred while adding the student');
+});
+
     });
 </script>
 

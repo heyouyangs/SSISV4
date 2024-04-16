@@ -1,5 +1,0 @@
-.venv
-.env
-.flaskenv
-__pycache__
-app.__pycache__
