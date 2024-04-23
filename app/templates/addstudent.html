@@ -105,9 +105,7 @@
     if (response.ok) {
         alert('Student added successfully');
         window.location.href = '/students';  // Redirect to the students page
-    } else {
-        alert('Failed to add student');
-    }
+    } 
 })
 .catch(error => {
     console.error('Error adding student:', error);
